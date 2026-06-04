@@ -10,10 +10,14 @@
     <div class="container">
       <div class="toDoList">
         <h1>
-          To-Do List <img src="todolist icon.png" alt="To-Do List Icon" />
+          To-Do List <img src="todolist icon.png" alt="To-Do List Icon"/>
         </h1>
         <div class="row">
-          <input type="text" id="taskInput" placeholder="Enter a task" />
+          <input type="text" id="taskInput" placeholder="Enter a task"/>
+          <select id="prioritySelect">
+            <option value="important">Important</option>
+            <option value="not-important">Not Important</option>
+          </select>
           <button id="addTaskBtn">Add Task</button>
         </div>
 
@@ -21,6 +25,8 @@
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="active">Active</button>
           <button class="filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn" data-filter="important">Important</button>
+          <button class="filter-btn" data-filter="not-important">Not Important</button>
         </div>
 
         <ul id="taskList"></ul>

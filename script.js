@@ -8,6 +8,18 @@ function addTask() {
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
+
+    // added
+    const priority = document.getElementById("prioritySelect").value;
+    li.setAttribute("data-priority", priority);
+
+    // added
+    if (priority === "important") {
+      li.style.borderLeft = "5px solid red";
+    } else {
+      li.style.borderLeft = "5px solid green";
+    }
+
     listContainer.appendChild(li);
 
     let span = document.createElement("span");
@@ -39,7 +51,7 @@ listContainer.addEventListener(
       saveData();
     }
   },
-  false,
+  false
 );
 
 filterButtons.forEach((btn) => {
@@ -62,18 +74,26 @@ function filterTasks() {
         item.style.display = "flex";
         break;
       case "active":
-        if (item.classList.contains("checked")) {
-          item.style.display = "none";
-        } else {
-          item.style.display = "flex";
-        }
+        item.style.display = item.classList.contains("checked")
+          ? "none"
+          : "flex";
         break;
       case "completed":
-        if (item.classList.contains("checked")) {
-          item.style.display = "flex";
-        } else {
-          item.style.display = "none";
-        }
+        item.style.display = item.classList.contains("checked")
+          ? "flex"
+          : "none";
+        break;
+      case "important":
+        item.style.display =
+          item.getAttribute("data-priority") === "important"
+            ? "flex"
+            : "none";
+        break;
+      case "not-important":
+        item.style.display =
+          item.getAttribute("data-priority") === "not-important"
+            ? "flex"
+            : "none";
         break;
     }
   });
