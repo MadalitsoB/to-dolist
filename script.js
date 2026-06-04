@@ -9,11 +9,11 @@ function addTask() {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
 
-    // added
+    // added feature
     const priority = document.getElementById("prioritySelect").value;
     li.setAttribute("data-priority", priority);
 
-    // added
+    // added feature
     if (priority === "important") {
       li.style.borderLeft = "5px solid red";
     } else {
